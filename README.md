@@ -1,32 +1,107 @@
 # AI Command School Skills
 
-> AI素养教育技能库 — 游戏化训练 AI 核心能力
+> Gamified AI literacy training skills for Claude Code. Teach your AI agent to play knowledge games with you.
+
+These skills follow the [Agent Skills specification](https://agentskills.io/specification) so they can be used by any skills-compatible agent, including Claude Code, Codex CLI, and OpenCode.
 
 ---
 
-## 目录结构
+## Why
+
+AI literacy isn't about learning to use AI tools — it's about **questioning AI output critically**. These gamified skills turn that into play: spot hidden errors, defend your arguments, and build the reflex to think before you trust.
+
+## Installation
+
+### Claude Code
+
+Copy the skill directory you want into your Claude Code skills folder:
+
+```bash
+# Option 1: Copy a single skill
+cp -r ai-literacy/questioning-ai-games/tricky-tutor ~/.claude/skills/
+
+# Option 2: Copy all skills
+cp -r ai-literacy/ ~/.claude/skills/
+```
+
+### npx skills
+
+```bash
+npx skills add git@github.com:dolores-seven/aicmdschool-skills.git
+```
+
+### Manually
+
+Clone this repo and copy any `SKILL.md` file into your agent's skills directory.
+
+---
+
+## Skills
+
+### AI Literacy — Questioning AI (Games)
+
+Train the core skill of questioning AI through interactive games. Build judgment for information accuracy and argument rigor.
+
+| Skill | Game | How to Trigger |
+|-------|------|----------------|
+| [tricky-tutor](ai-literacy/questioning-ai-games/tricky-tutor/SKILL.md) | **Spot the Error** — Read a 300-word article with 3 hidden knowledge errors and find them all | "Find the errors", "Quiz me", "Tricky tutor" |
+| [socratic-red-team](ai-literacy/questioning-ai-games/socratic-red-team/SKILL.md) | **Red Team Debate** — State your opinion, then defend it against Socratic cross-examination | "Debate me", "Attack my argument", "Red team" |
+
+### Quick Demo
+
+**Tricky Tutor:**
+```
+> /tricky-tutor
+> Topic: The Solar System
+
+The Sun is the largest planet in our solar system, ...
+**There are 3 traps hidden here, detective. Can you find them?**
+```
+
+**Socratic Red Team:**
+```
+> /socratic-red-team
+> My view: Homework should be abolished
+
+**Round 1 Attack:**
+1. Real-world counterexample: Finland...
+2. Reductio ad absurdum: If we abolish homework...
+3. Socratic question: What assumption underlies...
+```
+
+---
+
+## Directory Structure
 
 ```
-ai-literacy/                    # AI素养（大类）
-  questioning-ai-games/         # 质疑AI - 游戏化训练
-    tricky-tutor/               # 找茬游戏：在文章中找出隐藏的知识错误
-    socratic-red-team/          # 红队辩论：苏格拉底式逻辑攻防战
+aicmdschool-skills/
+└── ai-literacy/                        # AI Literacy (category)
+    └── questioning-ai-games/           # Questioning AI - Gamified (capability + approach)
+        ├── tricky-tutor/               # Spot-the-error game
+        │   └── SKILL.md
+        └── socratic-red-team/          # Socratic debate game
+            └── SKILL.md
 ```
 
-## 快速开始
+Skills are organized by **3 layers**:
+1. **Category** — `ai-literacy` (what domain)
+2. **Capability + Approach** — `questioning-ai-games` (what skill + how it's delivered)
+3. **Skill** — `tricky-tutor` (the specific game)
 
-将对应 skill 目录复制到你的 Claude Code skills 目录下即可使用。
+---
 
-## 技能说明
+## Roadmap
 
-### ai-literacy / questioning-ai-games
+- [ ] `ai-literacy/questioning-ai-teaching/` — Non-game teaching approaches
+- [ ] `ai-literacy/prompt-engineering/` — Learn to write better prompts
+- [ ] `ai-literacy/ethics-judgment/` — Navigate AI ethics dilemmas
+- [ ] More game modes under each capability
 
-训练"质疑AI"这一核心素养的游戏化技能。通过互动游戏，培养用户对信息准确性和论证严谨性的判断力。
+---
 
-| 技能 | 玩法 | 触发词 |
-|------|------|--------|
-| **tricky-tutor** | 找茬游戏：阅读含陷阱的短文，找出隐藏的知识错误 | "找茬"、"考考我"、"知识陷阱" |
-| **socratic-red-team** | 红队辩论：提出观点，接受AI的苏格拉底式追问和反驳 | "红队辩论"、"反驳我"、"和我辩论" |
+## Contributing
+
+Found a bug? Have an idea for a new game mode? Feel free to open an [Issue](https://github.com/dolores-seven/aicmdschool-skills/issues).
 
 ## License
 
